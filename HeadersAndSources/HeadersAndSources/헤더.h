@@ -1,5 +1,5 @@
-
+ï»¿
 #include <cstdio>
 #include <cmath> // sin(), cos(), tan(), exp(), pow(), round(), ceil(), floor()
 #include <cstdlib> // malloc, free, rand, srand
-#include <ctime> // time, clock -> ÀÇ»ç ³­¼ö ½Ãµå ¼³Á¤
+#include <ctime> // time, clock -> ì˜ì‚¬ ë‚œìˆ˜ ì‹œë“œ ì„¤ì •  
