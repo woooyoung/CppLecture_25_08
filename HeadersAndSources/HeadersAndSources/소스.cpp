@@ -1,4 +1,4 @@
-#include "Çì´õ.h"
+ï»¿#include "í—¤ë”.h"
 
 int main() {
 	
@@ -7,7 +7,7 @@ int main() {
 	printf("%f\n", sin(1));
 
 	srand(time(0));
-	printf("%d\n", rand() % 100);
+	printf("%d\n", rand() % 10);
 
 	return 0;
 }
