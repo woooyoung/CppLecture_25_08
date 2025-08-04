@@ -1,0 +1,13 @@
+# Visual Strudio related
+.vs/
+*.vsidx
+*.user
+*.suo
+
+#Build outputs
+Debug/
+Release/
+x64/
+*.obj
+*.exe
+*.log
