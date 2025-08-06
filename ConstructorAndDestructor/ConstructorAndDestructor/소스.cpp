@@ -1,4 +1,4 @@
-﻿// 클래스 생성자 / 소멸자
+﻿// 클래스 
 //#define _CRT_SECURE_NO_WARNINGS
 #pragma warning (disable : 4996)
 
