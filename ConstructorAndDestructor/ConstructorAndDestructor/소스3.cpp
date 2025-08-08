@@ -27,6 +27,10 @@ int main() {
 
 		if (input == 1) {
 			printf("==사원 보기==\n");
+			if (count == 0) {
+				printf("등록된 사원이 없습니다.\n");
+				continue;
+			}
 			for (int i = 0; i < count; i++) { // 사원 명부 배열을 순회
 				printf("==%d번째 사원==\n", i + 1);
 				empolyee[i]->printInfo(); // 순회하면서 해당 자리에 있는 사원에게 printInfo 함수 실행하도록
@@ -39,6 +43,8 @@ int main() {
 			char* rank = getString("직급을 입력해주세요 : ");
 
 			Empolyee* e = new Empolyee(name, gender, rank); // -> 입력받은 사원 1명에 대한 정보를 조립 -> 객체화
+			delete[] name;
+			delete[] rank;
 
 			empolyee[count] = e; // 사원 명부에 기록
 			count++; // 사원 명부의 다음 페이지에(줄에) 저장하기 위해서
@@ -48,6 +54,26 @@ int main() {
 			// 사원 번호를 한번 더 입력해서 누굴 퇴사처리 할 것인지 골라야함
 			// 입력받은 사원번호랑 현재 명부에 써있는 사원번호랑 비교 -> 일치하면 삭제, 일치하지 않으면 skip
 			// 사원 수 감소
+			int number = getInt("사원 번호를 입력해주세요 : ");
+			int deletedIndex = -1;
+
+			for (int i = 0; i < count; i++) { // 배열(사원명부)를 순회하는 반복문
+				if (number == empolyee[i]->no) { // 사용자가 방금 입력한 사원 번호와 배열 안의 특정 사원번호가 일치한다면
+					delete empolyee[i]; // 일치하는 사원을 삭제 시키겠다.
+					deletedIndex = i; // 일치하는 사원이 있을 경우 deleteIndex 에다가 해당 사원의 인덱스 덮어쓰기(위치저장)
+					break;
+				}
+			}
+
+			if (deletedIndex >= 0) { // 누군가가 삭제당했다.
+				for (int i = deletedIndex; i < count; i++) { // 현재 삭제된 인덱스부터 배열의 끝까지
+					empolyee[i] = empolyee[i + 1]; // 한칸씩 당겨와서 덮어쓰기
+				}
+			}
+			count--;
+
+			printf("%d번 사원이 퇴사처리 되었습니다.\n", number);
+
 		}
 		else if(input == 4){
 			printf("==프로그램 종료==\n");
